@@ -16,7 +16,7 @@ builder.Services.AddScoped<IAccountService, AccountService>();
 
 builder.Services.AddDbContext<MyBankContext>(Options =>
 {
-    Options.UseSqlServer("Server=My-computer\\SQLEXPRESS;Database=BankDb;Trusted_Connection=True;TrustServerCertificate=True");
+    Options.UseSqlServer("ConnectionString");
 });
 
 var app = builder.Build();
