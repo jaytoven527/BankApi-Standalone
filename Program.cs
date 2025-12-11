@@ -11,12 +11,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<ProcessTransaction>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 
 builder.Services.AddDbContext<MyBankContext>(Options =>
 {
-    Options.UseSqlServer("ConnectionString");
+    Options.UseSqlServer("Server=My-computer\\SQLEXPRESS;Database=BankDb;Trusted_Connection=True;TrustServerCertificate=True");
 });
 
 var app = builder.Build();

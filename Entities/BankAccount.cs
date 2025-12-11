@@ -18,5 +18,9 @@ namespace BankingApi_with_ReactFrontend.Server.Entities
 
         [JsonIgnore]
         public ICollection<Transaction> Transactions { get; } = new List<Transaction>();
+
+        [JsonIgnore]
+        public byte[]? RowVersion { get; set; }
+
     }
 }

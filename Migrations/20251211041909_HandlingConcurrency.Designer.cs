@@ -4,6 +4,7 @@ using BankingApi_with_ReactFrontend.Server.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankingApi_with_ReactFrontend.Server.Migrations
 {
     [DbContext(typeof(MyBankContext))]
-    partial class MyBankContextModelSnapshot : ModelSnapshot
+    [Migration("20251211041909_HandlingConcurrency")]
+    partial class HandlingConcurrency
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
