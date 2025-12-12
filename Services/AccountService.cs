@@ -11,9 +11,9 @@ namespace BankingApi_with_ReactFrontend.Server.Services
     {
         private readonly MyBankContext _myBankContext;
 
-        private readonly TransactionQueryService _transactionQueryService;
+        private readonly ITransactionQueryService _transactionQueryService;
 
-        public AccountService(MyBankContext MyBankContext, TransactionQueryService transactionQueryService)
+        public AccountService(MyBankContext MyBankContext, ITransactionQueryService transactionQueryService)
         {
             _myBankContext = MyBankContext;
             _transactionQueryService = transactionQueryService;

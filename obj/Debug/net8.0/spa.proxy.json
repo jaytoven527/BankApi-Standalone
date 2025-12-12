@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:51928",
 "RedirectUrl": "",
 "LaunchCommand": "npm run dev",
-"WorkingDirectory": "C:\\Program Files\\Ampps\\www\\BankingApi-with-ReactFrontend\\BankingApi-with-ReactFrontend.Server\\..\\bankingapi-with-reactfrontend.client",
+"WorkingDirectory": "C:\\Program Files\\Ampps\\www\\BankingApi-with-ReactFrontend\\BankingApi-with-ReactFrontend.server\\..\\bankingapi-with-reactfrontend.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

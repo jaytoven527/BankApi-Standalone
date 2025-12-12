@@ -24,7 +24,7 @@ namespace BankingApi_with_ReactFrontend.Server.Controllers
             return Created(string.Empty, NewAcctId);
         }
 
-        [HttpGet("byId")] 
+        [HttpGet("profile")] 
         public async Task<IActionResult> GetBankAccountAsync([FromQuery] Guid AcctId)
         {
             var record = await _accountService.GetBankAccountAsync(AcctId);
@@ -32,7 +32,7 @@ namespace BankingApi_with_ReactFrontend.Server.Controllers
             return Ok(record);
         }
 
-        [HttpGet("Transactions")]
+        [HttpGet("transactions")]
         public async Task<IActionResult> GetTransactionHistoryAsync([FromQuery] TransactionHistoryObject transactionHistoryObject,[FromQuery] Guid AcctId)
         {
             var transactionHistory = await _accountService.GetTransactionHistoryAsync(transactionHistoryObject, AcctId);
@@ -40,7 +40,7 @@ namespace BankingApi_with_ReactFrontend.Server.Controllers
             return Ok(transactionHistory);
         }
 
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAllBankAccountsAsync()
         {
             var bankAccounts = await _accountService.GetAllBankAccountsAsync();

@@ -15,6 +15,8 @@ namespace BankingApi_with_ReactFrontend.Server.Context
             modelBuilder.Entity<BankAccount>()
                 .Property(b => b.RowVersion)
                 .IsRowVersion(); // marks it as a concurrency token
+
+
         }
 
     }

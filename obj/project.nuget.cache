@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Bo/I2m+7iKw=",
+  "dgSpecHash": "JkOgceWLH4c=",
   "success": true,
-  "projectFilePath": "C:\\Program Files\\Ampps\\www\\BankingApi-with-ReactFrontend\\BankingApi-with-ReactFrontend.Server\\BankingApi-with-ReactFrontend.Server.csproj",
+  "projectFilePath": "C:\\Program Files\\Ampps\\www\\BankingApi-with-ReactFrontend\\BankingApi-with-ReactFrontend.server\\BankingApi-with-ReactFrontend.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jjwoo\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\jjwoo\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
