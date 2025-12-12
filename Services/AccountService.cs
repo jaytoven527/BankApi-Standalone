@@ -11,9 +11,12 @@ namespace BankingApi_with_ReactFrontend.Server.Services
     {
         private readonly MyBankContext _myBankContext;
 
-        public AccountService(MyBankContext MyBankContext)
+        private readonly TransactionQueryService _transactionQueryService;
+
+        public AccountService(MyBankContext MyBankContext, TransactionQueryService transactionQueryService)
         {
             _myBankContext = MyBankContext;
+            _transactionQueryService = transactionQueryService;
         }
 
         public async Task<Guid> CreateAccountAsync(CreateAccount NewAccount)
@@ -29,7 +32,7 @@ namespace BankingApi_with_ReactFrontend.Server.Services
                 };
 
                 await _myBankContext.BankAccounts.AddAsync(NewBankAccount);
-                await _myBankContext.SaveChangesAsync();
+                
 
                 if (NewBankAccount.Balance > 0)
                 {
@@ -42,10 +45,11 @@ namespace BankingApi_with_ReactFrontend.Server.Services
                     };
 
                     await _myBankContext.Transactions.AddAsync(InitialDeposit);
-                    await _myBankContext.SaveChangesAsync();
+                    
 
                 }
-                
+
+                await _myBankContext.SaveChangesAsync();
                 await dbTransaction.CommitAsync();
                 
                 return NewBankAccount.Id;
@@ -81,7 +85,7 @@ namespace BankingApi_with_ReactFrontend.Server.Services
                         if (NewTransaction.Amount <= 0)
                             throw new InvalidOperationException("Deposit amount must be positive. Please input a dollar amount greater than 0.");
                         BankAcct.Balance += NewTransaction.Amount;
-
+                        _myBankContext.Update(BankAcct);
                         break;
 
                     case TransactionType.Withdraw:
@@ -90,7 +94,7 @@ namespace BankingApi_with_ReactFrontend.Server.Services
                         if (BankAcct.Balance < NewTransaction.Amount)
                             throw new InvalidOperationException("Insufficient funds.");
                         BankAcct.Balance -= NewTransaction.Amount;
-
+                        _myBankContext.Update(BankAcct);
                         break;
 
                     default:
@@ -125,10 +129,44 @@ namespace BankingApi_with_ReactFrontend.Server.Services
 
         }
 
-        public async Task<IEnumerable<Transaction>> GetTransactionsHistoryAsync(TransactionHistoryObject transactionHistoryObject)
+        public async Task<List<TransactionLineItem>> GetTransactionHistoryAsync(TransactionHistoryObject transactionHistoryObject, Guid id)
         {
+            IQueryable<Transaction> getTransactions = _myBankContext.Transactions.AsQueryable();
+
+            getTransactions = getTransactions.Where(b => b.BankAccountId == id);
+
+            getTransactions = _transactionQueryService.ApplyFilter(getTransactions, transactionHistoryObject);
+
+            getTransactions = _transactionQueryService.ApplySorting(getTransactions, transactionHistoryObject);
+
+            IQueryable<TransactionLineItem> transactionLineItemsQuery = _transactionQueryService.PaginationControls(getTransactions, transactionHistoryObject);
+
+            return await transactionLineItemsQuery.ToListAsync();
 
         }
+
+        public async Task<BankAccount> GetBankAccountAsync(Guid AcctId)
+        {
+            var record =  await _myBankContext.BankAccounts.SingleOrDefaultAsync(b => b.Id.Equals(AcctId)) ?? throw new InvalidOperationException("Account could not be found.");
+
+            return record;
+        }
+
+        public async Task<List<GetAccountModel>> GetAllBankAccountsAsync()
+        {
+            var records = await _myBankContext.BankAccounts.Select(b => new GetAccountModel
+            {
+                Type = b.Type,
+
+                Owner = b.Owner,
+
+                OpenedOn = b.CreatedOn,
+
+            }).ToListAsync();
+
+            return records;
+        }
+
 
     }
 }

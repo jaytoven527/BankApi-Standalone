@@ -2,13 +2,13 @@
 {
     public class TransactionHistoryObject
     {
-        public int page { get; set; }
+        public int? page { get; set; }
 
-        public int pageSize { get; set; }
+        public int? pageSize { get; set; }
 
-        public int totalCount { get; set; }
+        public bool? sortDesc { get; set; }
 
-        public Guid bankAcctId { get; set; }
+        public bool? sortAsc { get; set; }
 
         public FilterBy? filterBy { get; set; }
 
