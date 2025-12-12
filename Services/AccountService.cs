@@ -36,7 +36,7 @@ namespace BankingApi_with_ReactFrontend.Server.Services
                     
                     Transaction InitialDeposit = new Transaction
                     {
-                        Type = Enum.Parse<TransactionType>("deposit"),
+                        Type = TransactionType.Deposit,
                         Amount = NewBankAccount.Balance,
                         BankAccountId = NewBankAccount.Id
                     };
