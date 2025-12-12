@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BankingApi-with-ReactFrontend.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8fd0f23fa1c9f7799df7ba058c523a8e255d5ee")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1718c024be3a64b7295677a616c7b76288483c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("BankingApi-with-ReactFrontend.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BankingApi-with-ReactFrontend.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

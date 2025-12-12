@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Program Files\\Ampps\\www\\BankingApi-with-ReactFrontend\\BankingApi-with-ReactFrontend.server\\BankingApi-with-ReactFrontend.Server.csproj": {}
+    "C:\\Program Files\\Ampps\\www\\BankingApi-with-ReactFrontend\\BankingApi-with-ReactFrontend.Server\\BankingApi-with-ReactFrontend.Server.csproj": {}
   },
   "projects": {
-    "C:\\Program Files\\Ampps\\www\\BankingApi-with-ReactFrontend\\BankingApi-with-ReactFrontend.server\\BankingApi-with-ReactFrontend.Server.csproj": {
+    "C:\\Program Files\\Ampps\\www\\BankingApi-with-ReactFrontend\\BankingApi-with-ReactFrontend.Server\\BankingApi-with-ReactFrontend.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Program Files\\Ampps\\www\\BankingApi-with-ReactFrontend\\BankingApi-with-ReactFrontend.server\\BankingApi-with-ReactFrontend.Server.csproj",
+        "projectUniqueName": "C:\\Program Files\\Ampps\\www\\BankingApi-with-ReactFrontend\\BankingApi-with-ReactFrontend.Server\\BankingApi-with-ReactFrontend.Server.csproj",
         "projectName": "BankingApi-with-ReactFrontend.Server",
-        "projectPath": "C:\\Program Files\\Ampps\\www\\BankingApi-with-ReactFrontend\\BankingApi-with-ReactFrontend.server\\BankingApi-with-ReactFrontend.Server.csproj",
+        "projectPath": "C:\\Program Files\\Ampps\\www\\BankingApi-with-ReactFrontend\\BankingApi-with-ReactFrontend.Server\\BankingApi-with-ReactFrontend.Server.csproj",
         "packagesPath": "C:\\Users\\jjwoo\\.nuget\\packages\\",
-        "outputPath": "C:\\Program Files\\Ampps\\www\\BankingApi-with-ReactFrontend\\BankingApi-with-ReactFrontend.server\\obj\\",
+        "outputPath": "C:\\Program Files\\Ampps\\www\\BankingApi-with-ReactFrontend\\BankingApi-with-ReactFrontend.Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

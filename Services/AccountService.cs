@@ -33,9 +33,10 @@ namespace BankingApi_with_ReactFrontend.Server.Services
 
                 if (NewBankAccount.Balance > 0)
                 {
+                    
                     Transaction InitialDeposit = new Transaction
                     {
-                        Type = "Deposit",
+                        Type = Enum.Parse<TransactionType>("deposit"),
                         Amount = NewBankAccount.Balance,
                         BankAccountId = NewBankAccount.Id
                     };
@@ -72,18 +73,18 @@ namespace BankingApi_with_ReactFrontend.Server.Services
                 var BankAcct = await _myBankContext.BankAccounts.FindAsync(NewTransaction.BankAccountId);
                 if (BankAcct == null) throw new InvalidOperationException("Account could not be found.");
 
-                string transcationType = NewTransaction.Type.Trim().ToLower();
+                TransactionType transcationType = NewTransaction.Type;
 
                 switch (transcationType)
                 {
-                    case "deposit":
+                    case TransactionType.Deposit:
                         if (NewTransaction.Amount <= 0)
                             throw new InvalidOperationException("Deposit amount must be positive. Please input a dollar amount greater than 0.");
                         BankAcct.Balance += NewTransaction.Amount;
 
                         break;
 
-                    case "withdraw":
+                    case TransactionType.Withdraw:
                         if (NewTransaction.Amount <= 0)
                             throw new InvalidOperationException("Withdrawal amount must be positive. Please input a dollar amount greater than 0.");
                         if (BankAcct.Balance < NewTransaction.Amount)
@@ -98,7 +99,7 @@ namespace BankingApi_with_ReactFrontend.Server.Services
 
                 Transaction Record = new Transaction
                 {
-                    Type = NewTransaction.Type,
+                    Type = transcationType,
                     Amount = NewTransaction.Amount,
                     BankAccountId = NewTransaction.BankAccountId,
                 };
@@ -121,6 +122,11 @@ namespace BankingApi_with_ReactFrontend.Server.Services
                 throw;
             }
 
+
+        }
+
+        public async Task<IEnumerable<Transaction>> GetTransactionsHistoryAsync(TransactionHistoryObject transactionHistoryObject)
+        {
 
         }
 

@@ -8,6 +8,13 @@ namespace BankingApi_with_ReactFrontend.Server.Services
         Task<Guid> CreateAccountAsync(CreateAccount NewAccount);
 
         Task<Transaction> DoTransactionAsync(UpdateAccountFromTransaction NewTransaction);
+
+        Task<IEnumerable<Transaction>> GetTransactionHistoryAsync(TransactionHistoryObject transactionHistoryObject);
+
+        Task<BankAccount> GetBankAccountAsync(Guid AcctId);
+
+        Task<IEnumerable<BankAccount>> GetAllBankAccountsAsync();
+
     }
 }
     

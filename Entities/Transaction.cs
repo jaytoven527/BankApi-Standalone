@@ -1,4 +1,5 @@
 ﻿using BankingApi_with_ReactFrontend.Server.Helper;
+using BankingApi_with_ReactFrontend.Server.Models;
 
 namespace BankingApi_with_ReactFrontend.Server.Entities
 {
@@ -6,7 +7,7 @@ namespace BankingApi_with_ReactFrontend.Server.Entities
     {
         public Guid Id { get; set; } = SequentialGuid.NewSequentialGuid();
 
-        public string Type { get; set; }
+        public TransactionType Type { get; set; }
 
         public decimal Amount { get; set; }
 
